@@ -9,14 +9,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-  title: string= "User-edit";
-  submitBtnTitle: string="Edit";
+  title: string = "User-edit";
+  submitBtnTitle: string = "Save";
   user: User = new User();
-  userId: number=0;
+  userId: number = 0;
 
   constructor(private userSvc: UserService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(parms => this.userId = parms["id"]);
@@ -26,17 +26,17 @@ export class UserEditComponent implements OnInit {
       });
   }
 
-save() {
-  this.userSvc.edit(this.user).subscribe(
-    jr => {
-      if(jr.errors==null){
-        this.router.navigateByUrl("/user/list");
+  save() {
+    this.userSvc.edit(this.user).subscribe(
+      jr => {
+        if (jr.errors == null) {
+          this.router.navigateByUrl("/user/list");
+        }
+        else {
+          console.log("***Error editing this User!: ", this.user, jr.errors);
+        }
       }
-      else {
-        console.log("***Error editing this User!: ",this.user, jr.errors);
-      }
-    }
-  )  
-}
+    )
+  }
 
 }

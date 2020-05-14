@@ -10,6 +10,10 @@ import { UserDetailComponent } from './feature/user/user-detail/user-detail.comp
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
 import { MenuComponent } from './core/menu/menu.component';
+import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { MenuComponent } from './core/menu/menu.component';
     UserDetailComponent,
     UserCreateComponent,
     UserEditComponent,
-    MenuComponent
+    MenuComponent,
+    VendorListComponent,
+    VendorDetailComponent,
+    VendorCreateComponent,
+    VendorEditComponent
   ],
   imports: [
     BrowserModule,
