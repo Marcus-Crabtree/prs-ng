@@ -1,1 +1,9 @@
-<p>menu works!</p>
+<nav>
+
+    <ul>
+        <li font-weight="bold" color="#0000ff" >PRS</li>
+        <li *ngFor="let mi of menuItems" title="{{mi.tooltip}}">
+            <a routerLink="{{mi.href}}">{{mi.display}}</a>
+        </li>
+    </ul>
+</nav>
