@@ -34,8 +34,8 @@ export class UserService {
 
   }
 
-  // login(user: User): Observable<JsonResponse>{
-  //   return this.http.post(url+"login",user) as Observable<JsonResponse>;
+  login(user: User): Observable<JsonResponse>{
+    return this.http.post(url+"login",user) as Observable<JsonResponse>;
     
-  // }
+  }
 }

@@ -12,6 +12,7 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'product/create', component: ProductCreateComponent}, 
   {path: 'product/detail/:id', component: ProductDetailComponent}, 
   {path: 'product/edit/:id', component: ProductEditComponent}, 
+  {path: 'user/login', component: UserLoginComponent}, 
   {path: '**', component: ProductListComponent} 
 ];
 

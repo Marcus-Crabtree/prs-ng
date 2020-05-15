@@ -31,6 +31,7 @@ export class ProductDetailComponent implements OnInit {
       jr => {
         if (jr.errors == null) {
           console.log(jr.data);
+          this.router.navigateByUrl("/product/list");
         }
         else {
           console.log("***Error deleting Product: ", this.productId, jr.errors);
