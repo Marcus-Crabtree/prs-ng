@@ -13,11 +13,15 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: ProductListComponent}, 
+  {path: 'home', component: RequestListComponent}, 
   {path: 'user/list', component: UserListComponent}, 
   {path: 'user/create', component: UserCreateComponent}, 
   {path: 'user/detail/:id', component: UserDetailComponent}, 
@@ -29,7 +33,11 @@ const routes: Routes = [
   {path: 'product/list', component: ProductListComponent}, 
   {path: 'product/create', component: ProductCreateComponent}, 
   {path: 'product/detail/:id', component: ProductDetailComponent}, 
-  {path: 'product/edit/:id', component: ProductEditComponent}, 
+  {path: 'product/edit/:id', component: ProductEditComponent},
+  {path: 'request/list', component: RequestListComponent}, 
+  {path: 'request/create', component: RequestCreateComponent}, 
+  {path: 'request/detail/:id', component: RequestDetailComponent}, 
+  {path: 'request/edit/:id', component: RequestEditComponent}, 
   {path: 'user/login', component: UserLoginComponent}, 
   {path: '**', component: ProductListComponent} 
 ];

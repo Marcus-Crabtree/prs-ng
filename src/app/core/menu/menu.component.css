@@ -11,6 +11,8 @@ ul {
 li {
 	display: inline-block;
 	text-align:center;
+	font-weight:"bold";
+	 color: #ffd300;
 }
 a {
 	color: white;

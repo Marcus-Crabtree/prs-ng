@@ -1,0 +1,76 @@
+<span class="page-title font-weight-bold font-italic">[{{title}}]</span>
+<span> | <a routerLink="/request/list">Return to list</a></span>
+<p *ngIf='!request'>Loading...</p>
+<div *ngIf='request'>
+    <main class="single">
+        <table class="table table-sm">
+
+            <tr>
+                <td>
+                    User:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.user.userName" class="rounded" disabled>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.user.phoneNumber" class="rounded" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    <input [(ngModel)]="request.user.email" class="rounded" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Description:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.description" class="rounded" type="text" required>*Required
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Justification:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.justification" class="rounded" type="text" required>*Required
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Date needed:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.dateNeeded" class="rounded" type="text" type="date"
+                        required>&nbsp;*required
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Delivery Method:
+                </td>
+                <td>
+                    <input [(ngModel)]="request.deliveryMode" class="rounded" type="text" required>*"Mail" or "Pickup"
+                    required
+                </td>
+            </tr>
+        </table>
+    </main>
+    <table>
+        <tr>
+            <td>
+                <span *ngIf='!validated' style="color:red"><b>* Please enter the Required Fields</b></span>
+            </td>
+        </tr>
+        <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
+        <!-- <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span> -->
