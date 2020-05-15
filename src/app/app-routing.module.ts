@@ -8,11 +8,15 @@ import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.co
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: VendorListComponent}, 
+  {path: 'home', component: ProductListComponent}, 
   {path: 'user/list', component: UserListComponent}, 
   {path: 'user/create', component: UserCreateComponent}, 
   {path: 'user/detail/:id', component: UserDetailComponent}, 
@@ -20,8 +24,12 @@ const routes: Routes = [
   {path: 'vendor/list', component: VendorListComponent}, 
   {path: 'vendor/create', component: VendorCreateComponent}, 
   {path: 'vendor/detail/:id', component: VendorDetailComponent}, 
-  {path: 'vendor/edit/:id', component: VendorEditComponent}, 
-  {path: '**', component: VendorListComponent} 
+  {path: 'vendor/edit/:id', component: VendorEditComponent},
+  {path: 'product/list', component: ProductListComponent}, 
+  {path: 'product/create', component: ProductCreateComponent}, 
+  {path: 'product/detail/:id', component: ProductDetailComponent}, 
+  {path: 'product/edit/:id', component: ProductEditComponent}, 
+  {path: '**', component: ProductListComponent} 
 ];
 
 @NgModule({
