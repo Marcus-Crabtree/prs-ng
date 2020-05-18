@@ -17,6 +17,10 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { LineItemCreateComponent } from './feature/line-item/lineitem-create/lineitem-create.component';
+import { LineItemEditComponent } from './feature/line-item/lineitem-edit/lineitem-edit.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 
 
 const routes: Routes = [
@@ -37,7 +41,12 @@ const routes: Routes = [
   {path: 'request/list', component: RequestListComponent}, 
   {path: 'request/create', component: RequestCreateComponent}, 
   {path: 'request/detail/:id', component: RequestDetailComponent}, 
-  {path: 'request/edit/:id', component: RequestEditComponent}, 
+  {path: 'request/edit/:id', component: RequestEditComponent},
+  {path: 'line-item/create/:id', component: LineItemCreateComponent}, 
+  {path: 'line-item/edit/:id', component: LineItemEditComponent},
+  {path: 'request/request-lines/:id', component: RequestLinesComponent},
+  {path: 'request/review', component: RequestReviewComponent}, 
+  // {path: 'request/approve/:id', component: RequestApproveComponent},   
   {path: 'user/login', component: UserLoginComponent}, 
   {path: '**', component: ProductListComponent} 
 ];

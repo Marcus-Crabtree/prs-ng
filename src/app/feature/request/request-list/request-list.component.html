@@ -7,41 +7,32 @@
 <table *ngIf="requests" class='table table-sm table-striped'>
     <thead>
         <tr>
-            
             <th>User</th>
             <th>Description</th>
-           
             <th>Date Needed</th>
-            
             <th>Status</th>
-           
             <th>Submitted Date</th>
-           
             <th>Action</th>
-           
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let request of requests">
-            
             <td>{{request.user.userName}}</td>
             <td>{{request.description}}</td>
-            
             <td>{{request.dateNeeded}}</td>
-            
             <td>{{request.status}}</td>
-           
             <td>{{request.submittedDate}}</td>
-            
-            
-           
             <td>
                 <a routerLink='/request/detail/{{request.id}}'>
                  <img width='20' height='20' src='assets/details.png' title='Request Details'>
             </a> |
             <a routerLink='/request/edit/{{request.id}}'>
                 <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
-            </a></td> 
+            </a> |
+            <a routerLink='/request/request-lines/{{request.id}}'>
+                <img width='20' height='20' src='assets/lines.png' title='Edit Request'>
+            </a>
+        </td> 
         </tr>
     </tbody>
 </table>
