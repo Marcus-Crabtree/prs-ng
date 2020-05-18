@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <span class="page-title font-weight-bold font-italic">[{{title}}]</span>
 <span> | <a routerLink="/request/list">Return to list</a></span>
 <p *ngIf='!request'>Loading...</p>
@@ -65,11 +66,30 @@
             </tr>
         </table>
     </main>
-    <table>
+    <table class="table table-sm">
+        <tr>
+            <td>
+                Product:
+            </td>
+            <td>
+                <select [(ngModel)]="lineItem.product" class="rounded">
+                    <option *ngFor = "let product of products" [ngValue]='product'>{{product.name}} | {{product.vendor.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Quantity:
+            </td>
+            <td>
+                <input [(ngModel)]="lineItem.quantity" class="rounded" type="number">
+            </td>
+        </tr>
+    </table>
         <tr>
             <td>
                 <span *ngIf='!validated' style="color:red"><b>* Please enter the Required Fields</b></span>
             </td>
         </tr>
-        <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
-        <!-- <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span> -->
+        <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> 
+       

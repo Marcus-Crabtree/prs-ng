@@ -21,11 +21,13 @@ import { LineItemCreateComponent } from './feature/line-item/lineitem-create/lin
 import { LineItemEditComponent } from './feature/line-item/lineitem-edit/lineitem-edit.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
+import { HomeComponent } from './feature/home/home.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: RequestListComponent}, 
+  {path: 'home', component: HomeComponent}, 
   {path: 'user/list', component: UserListComponent}, 
   {path: 'user/create', component: UserCreateComponent}, 
   {path: 'user/detail/:id', component: UserDetailComponent}, 
@@ -46,9 +48,9 @@ const routes: Routes = [
   {path: 'line-item/edit/:id', component: LineItemEditComponent},
   {path: 'request/request-lines/:id', component: RequestLinesComponent},
   {path: 'request/review', component: RequestReviewComponent}, 
-  // {path: 'request/approve/:id', component: RequestApproveComponent},   
+  {path: 'request/approve/:id', component: RequestApproveComponent},   
   {path: 'user/login', component: UserLoginComponent}, 
-  {path: '**', component: ProductListComponent} 
+  {path: '**', component: HomeComponent} 
 ];
 
 @NgModule({

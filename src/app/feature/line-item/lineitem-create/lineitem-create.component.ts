@@ -20,8 +20,11 @@ export class LineItemCreateComponent implements OnInit {
   products: Product[] = [];
 
 
-  constructor(private lineItemSvc: LineItemService, private productSvc: ProductService, private requestSvc: RequestService,
-    private router: Router, private route: ActivatedRoute) { }
+  constructor(private lineItemSvc: LineItemService, 
+    private productSvc: ProductService, 
+    private requestSvc: RequestService,
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
@@ -37,7 +40,8 @@ export class LineItemCreateComponent implements OnInit {
   }
 
   save() {
-    this.lineItemSvc.create(this.lineItem).subscribe(jr => {
+    this.lineItemSvc.create(this.lineItem).subscribe(
+      jr => {
       if (jr.errors == null) {
         this.router.navigateByUrl("/request/request-lines/" + this.requestId);
       }
