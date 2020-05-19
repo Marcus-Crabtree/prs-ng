@@ -37,7 +37,8 @@
                         <a routerLink='/request/detail/{{request.id}}'class="mr-1">
                             <img width='20' height='20' src='assets/details.png' title='Request Details'>
                         </a>  &nbsp;  
-                        <a routerLink='/request/edit/{{request.id}}'>
+                        <a *ngIf="!(request.status =='Rejected') && !(request.status == 'Approved')"  
+                            routerLink='/request/edit/{{request.id}}'>
                             <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
                         </a>  &nbsp;   
                         <a routerLink='/request/request-lines/{{request.id}}'>

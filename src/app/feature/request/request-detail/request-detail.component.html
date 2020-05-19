@@ -1,54 +1,37 @@
 <app-menu></app-menu>
-<div *ngIf="request" class="component">
-    <section class="heading">
-        <span class="page-title font-weight-bold font-italic">[{{title}}]</span>
-        <span> | <a routerLink="/request/list">Return to List</a></span>
-    </section>
-    <main class="single">
-        <table class="table table-sm">
-            <tr>
-                <td>ID</td>
-                <td>{{request.id}}</td>
-            </tr>
-            <tr>
-                <td>User:</td>
-                <td *ngIf="request.user"><input [(ngModel)]="request.user.firstName + ' ' + request.user.lastName" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Description:</td>
-                <td><input [(ngModel)]="request.description" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Justification:</td>
-                <td><input [(ngModel)]="request.justification" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Date Needed:</td>
-                <td><input [(ngModel)]="request.dateNeeded" class="rounded" type="date" disabled></td>
-            </tr>
-            <tr>
-                <td>Delivery Mode:</td>
-                <td><input [(ngModel)]="request.deliveryMode" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Status:</td>
-                <td><input [(ngModel)]="request.status" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>total:</td>
-                <td><input [(ngModel)]="request.total" class="rounded" type="number" disabled></td>
-            </tr>
-            <tr>
-                <td>Submitted Date:</td>
-                <td><input [(ngModel)]="request.submittedDate" class="rounded" type="datetime" disabled></td>
-            </tr>
-            <tr>
-                <td>Reason For Rejection:</td>
-                <td><input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" disabled></td>
-            </tr>
-        </table>
-    </main>
-    <span>
-        <span><a routerLink="/request/edit/{{request.id}}" class="btn btn-sm btn-warning">Edit</a></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+<div class="jumbotron">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <a routerLink="/request/list"
+      class="breadcrumb-item active"
+      aria-current="page">
+      &#8592; Return to list</a>
+  </nav>
+  <h1>Request Details</h1>
+  <span *ngIf="request">
+    <span class="lead">
+      <p><strong>ID </strong>{{ request.id }}</p>
+      <p *ngIf="request.user"><strong>User </strong> {{request.user.firstName}} {{request.user.lastName}}</p>
+      <p><strong>Description </strong>{{ request.description}}</p>
+      <p><strong>Justification </strong>{{ request.justification }}</p>
+      <p><strong>Date Needed </strong>{{ request.dateNeeded }}</p>
+      <p><strong>Delivery Mode </strong>request.deliveryMode }}</p>
+      <strong>Status </strong><strong class="{{ request.status}}">{{ request.status }}</strong>
+      <p></p>
+      <p><strong>submitted Date </strong>{{ request.submittedDate }}</p>
+      <p *ngIf="request.reasonForRejection"><strong>Reason for Rejection </strong>{{ request.reasonForRejection}}</p>
     </span>
+    <span>
+      <spannew
+        ><a routerLink="/request/edit/{{ request.id }}" class="btn btn-sm btn-warning"
+          >Edit</a
+        ></span
+      >
+      <span>
+        |
+        <button (click)="delete()" class="btn btn-sm btn-danger">
+          Delete
+        </button></span
+      >
+    </span>
+  </span>
+</div>

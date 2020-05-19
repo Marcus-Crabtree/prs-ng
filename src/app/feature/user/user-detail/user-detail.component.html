@@ -1,43 +1,39 @@
 <app-menu></app-menu>
 <div class="jumbotron">
-    <nav aria-label="breadcrumb" class="mb-4">
-        <a routerLink="/user/list" class="breadcrumb-item active" aria-current="page">
-            &#8592; Return to list</a>
-    </nav>
-    <h1>{{title}}</h1>
-    <span *ngIf="user">
-        <span class="lead">
-            <p>
-                <strong>ID </strong>{{ user.id }}
-            </p>
-            <p>
-                <strong>User name</strong>{{ user.userName }}
-            </p>
-            <p>
-                <strong>Password</strong>{{ user.password }}
-            </p>
-            <p>
-                <strong>First Name </strong>{{ user.firstName }}
-            </p>
-            <p>
-                <strong>Last Name </strong>{{ user.lastName }}
-            </p>
-            <p>
-                <strong>Phone </strong>{{ user.phoneNumber }}
-            </p>
-            <p>
-                <strong>Email </strong>{{ user.email}}
-            </p>
-            <p>
-                <strong>Reviewer </strong>{{ user.reviewer}}
-            </p>
-            <p>
-                <strong>Admin </strong>{{ user.admin}}
-            </p>
-        </span>
-    <span>
-        <span><a routerLink="/user/edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+  <nav aria-label="breadcrumb" class="mb-4">
+    <a
+      routerLink="/user/list"
+      class="breadcrumb-item active"
+      aria-current="page"
+    >
+      &#8592; Return to list</a
+    >
+  </nav>
+  <h1>User Details</h1>
+  <span *ngIf="user">
+    <span class="lead">
+      <p><strong>ID </strong>{{ user.id }}</p>
+      <p><strong>User name </strong>{{ user.userName }}</p>
+      <p><strong>Password </strong>{{ user.password }}</p>
+      <p><strong>First Name </strong>{{ user.firstName }}</p>
+      <p><strong>Last Name </strong>{{ user.lastName }}</p>
+      <p><strong>Phone </strong>{{ user.phoneNumber }}</p>
+      <p><strong>Email </strong>{{ user.email }}</p>
+      <p><strong>Reviewer </strong>{{ user.reviewer }}</p>
+      <p><strong>Admin </strong>{{ user.admin }}</p>
     </span>
-
-
+    <span>
+      <span
+        ><a routerLink="/user/edit/{{ user.id }}" class="btn btn-sm btn-warning"
+          >Edit</a
+        ></span
+      >
+      <span>
+        |
+        <button (click)="delete()" class="btn btn-sm btn-danger">
+          Delete
+        </button></span
+      >
+    </span>
+  </span>
+</div>
