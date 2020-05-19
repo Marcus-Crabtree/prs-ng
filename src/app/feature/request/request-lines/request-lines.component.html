@@ -49,7 +49,7 @@
                         <td>
                             <a routerLink='/line-item/edit/{{lineItem.id}}'>
                                 <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Line Item'>
-                            </a>
+                            </a> &nbsp;
                             <button *ngIf="request.status == 'New'" (click)="delete(lineItem.id)" style="border:none;">
                                 <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
                             </button>

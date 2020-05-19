@@ -1,34 +1,44 @@
 <app-menu></app-menu>
-<section class="Heading">
-    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-    <a routerLink='/vendor/create'>
-            <img width='20' height='20' src='assets/addnewblue.png' title='Add New'>
-        </a>
-</section>
-<table *ngIf="vendors" class='table table-sm table-striped'>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let vendor of vendors">
-            <td>{{vendor.name}}</td>
-            <td>{{vendor.address}}</td>
-            <td>{{vendor.city}}</td>
-            <td>{{vendor.state}}</td>
-            <td>
-                <a routerLink='/vendor/detail/{{vendor.id}}'>
-                 <img width='20' height='20' src='assets/details.png' title='Vendor Details'>
-            </a> |
-            <a routerLink='/vendor/edit/{{vendor.id}}'>
-                <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Vendor'>
-            </a></td> 
-        </tr>
-    </tbody>
-</table>
+<div class="jumbotron">
+    <h1>Vendors</h1>
+      <p class="lead">Description about what Vendors are</p>
+    <hr class="my-4">
+    <p class="lead">
+      <a routerLink='/vendor/create' class="btn btn-primary btn-lg" href="#" role="button">Add New</a>
+    </p>
+</div>
+  
+<span *ngIf="vendors">
+      <div class="container-fluid mt-3">
+          <div class="col-md-12 d-flex flex-row flex-wrap">
+              <span *ngFor="let vendor of vendors">
+                  <div class="card p-2 m-2" style="width: 18rem;">
+                      <div class="card-body">
+                          <div class="card-title">
+                              <h2>
+                                  {{vendor.name}}
+                              </h2>
+                          </div>
+                          <p class="card-text">
+                              {{vendor.address}}
+                          </p>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">City: {{vendor.city}}</li>
+                          <li class="list-group-item">State: {{vendor.state}}</li>
+                          <li class="list-group-item">zip: {{vendor.zip}}</li>
+                        </ul>
+                      <div class="card-text">
+                        <a routerLink='/vendor/detail/{{vendor.id}}'class="mr-1">
+                            <img width='20' height='20' src='assets/details.png' title='Request Details'>
+                        </a>  &nbsp;  
+                        <a routerLink='/vendor/edit/{{vendor.id}}'>
+                            <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+</span>
 

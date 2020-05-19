@@ -1,53 +1,43 @@
-
 <app-menu></app-menu>
-<div *ngIf="user" class="component">
-    <section class="Heading">
-        <span class="page-title font-weight-bold font-italic" >{{title}}</span>
-        <span> | <a routerLink="/user/list">Return to list</a></span>
-    </section>
-    <main class="single">
-        <table class="table table-sm">
-            <tr>
-                <td>ID</td>
-                <td>{{user.id}}</td>
-            </tr>
-            <tr>
-                <td>User Name:</td>
-                <td><input [(ngModel)]="user.userName" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input [(ngModel)]="user.password" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>First Name:</td>
-                <td><input [(ngModel)]="user.firstName" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td><input [(ngModel)]="user.lastName" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Phone Number:</td>
-                <td><input [(ngModel)]="user.phoneNumber" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input [(ngModel)]="user.email" class="rounded" type="text" disabled></td>
-            </tr>
-            <tr>
-                <td>Reviewer?:</td>
-                <td><input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" disabled></td>
-            </tr>
-            <tr>
-                <td>Admin?:</td>
-                <td><input [(ngModel)]="user.admin" class="rounded" type="checkbox" disabled></td>
-            </tr>
-        </table>
-    </main>
+<div class="jumbotron">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <a routerLink="/user/list" class="breadcrumb-item active" aria-current="page">
+            &#8592; Return to list</a>
+    </nav>
+    <h1>{{title}}</h1>
+    <span *ngIf="user">
+        <span class="lead">
+            <p>
+                <strong>ID </strong>{{ user.id }}
+            </p>
+            <p>
+                <strong>User name</strong>{{ user.userName }}
+            </p>
+            <p>
+                <strong>Password</strong>{{ user.password }}
+            </p>
+            <p>
+                <strong>First Name </strong>{{ user.firstName }}
+            </p>
+            <p>
+                <strong>Last Name </strong>{{ user.lastName }}
+            </p>
+            <p>
+                <strong>Phone </strong>{{ user.phoneNumber }}
+            </p>
+            <p>
+                <strong>Email </strong>{{ user.email}}
+            </p>
+            <p>
+                <strong>Reviewer </strong>{{ user.reviewer}}
+            </p>
+            <p>
+                <strong>Admin </strong>{{ user.admin}}
+            </p>
+        </span>
     <span>
         <span><a routerLink="/user/edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
         <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
     </span>
 
-</div>
+
