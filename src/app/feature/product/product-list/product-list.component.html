@@ -1,31 +1,43 @@
 <app-menu></app-menu>
-<section class="Heading">
-    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-    <a routerLink='/product/create'>
-        <img width='20' height='20' src='assets/addnewblue.png' title='Add New'>
-    </a>
-</section>
-<table *ngIf="products" class='table table-sm table-striped'>
-    <thead>
-        <tr>
-            <th>Vendor</th>
-            <th>Part Number</th>
-            <th>Name</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{product.vendor.name}}</td>
-            <td>{{product.partNumber}}</td>
-            <td>{{product.name}}</td>
-            <td>
-                <a routerLink='/product/detail/{{product.id}}'>
-                    <img width='20' height='20' src='assets/details.png' title='Product Details'>
-                </a> |
-                <a routerLink='/product/edit/{{product.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Product'>
-                </a></td>
-        </tr>
-    </tbody>
-</table>
+<div class="jumbotron">
+    <h1>Products</h1>
+      <p class="lead">Look up by product, or create a new one.</p>
+    <hr class="my-4">
+    <p class="lead">
+      <a routerLink='/product/create' class="btn btn-primary btn-lg" href="#" role="button">Add New</a>
+    </p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Part Number</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="products" class="table table-sm table-striped">
+                    <tr *ngFor="let product of products">
+                        <td>{{ product.vendor.name }}</td>
+                        <td>{{ product.partNumber }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>
+                            <a routerLink='/product/detail/{{product.id}}'>
+                                <img width='20' height='20' src='assets/details.png' title='Product Details'>
+                            </a> &nbsp;
+                            <a routerLink='/product/edit/{{product.id}}'>
+                                <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Product'>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+  

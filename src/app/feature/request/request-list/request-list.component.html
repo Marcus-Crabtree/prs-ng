@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class="jumbotron">
   <h1>Requests</h1>
-    <p class="lead">Description about what requests are</p>
+    <p class="lead">Add a new Purchase Request, or track current ones.</p>
   <hr class="my-4">
   <p class="lead">
     <a routerLink='/request/create' class="btn btn-primary btn-lg" href="#" role="button">Add New</a>
@@ -28,7 +28,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Needed By: {{request.dateNeeded}}</li>
-                        <li class="list-group-item">Status: {{request.status}}</li>
+                        <li class="list-group-item">
+                            Status: <span class="{{request.status}}">{{request.status}}</span>
+                        </li>
                         <li class="list-group-item">Submitted: {{request.submittedDate}}</li>
                     </ul>
                     <div class="card-text">
@@ -47,35 +49,3 @@
         </div>
     </div>
 </span>
-<!-- <table *ngIf="requests" class='table table-sm table-striped'>
-    <thead>
-        <tr>
-            <th>User</th>
-            <th>Description</th>
-            <th>Date Needed</th>
-            <th>Status</th>
-            <th>Submitted Date</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let request of requests">
-            <td>{{request.user.userName}}</td>
-            <td>{{request.description}}</td>
-            <td>{{request.dateNeeded}}</td>
-            <td>{{request.status}}</td>
-            <td>{{request.submittedDate}}</td>
-            <td>
-                <a routerLink='/request/detail/{{request.id}}'>
-                    <img width='20' height='20' src='assets/details.png' title='Request Details'>
-                </a> |
-                <a routerLink='/request/edit/{{request.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
-                </a> |
-                <a routerLink='/request/request-lines/{{request.id}}'>
-                    <img width='20' height='20' src='assets/lines.png' title='Edit Request'>
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table> -->

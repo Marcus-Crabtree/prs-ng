@@ -54,3 +54,25 @@ input {
 .navbar-light .navbar-nav a:hover {
   color: #3498db;
 }
+
+.Review {
+  color: #ff7738;
+  font-weight: bold;
+  
+ 
+}
+
+.New {
+  color: blue;
+  font-weight: bold;
+}
+
+.Approved {
+  color: green;
+  font-weight: bold;
+}
+
+.Rejected {
+  color: red;
+  font-weight: bold;
+}
