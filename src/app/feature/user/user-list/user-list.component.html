@@ -1,11 +1,47 @@
 <app-menu></app-menu>
-<section class="Heading">
-    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-    <a routerLink='/user/create'>
-            <img width='20' height='20' src='assets/addnewblue.png' title='Add New'>
-        </a>
-</section>
-<table *ngIf="users" class='table table-sm table-striped'>
+<div class="jumbotron">
+  <h1>Users</h1>
+    <p class="lead">This is a description of the page to help you out. </p>
+
+  <hr class="my-4">
+  <p class="lead">
+    <a routerLink='/user/create' class="btn btn-primary btn-lg" href="#" role="button">Add New</a>
+  </p>
+</div>
+
+<span *ngIf="users">
+    <div class="container-fluid mt-3">
+        <div class="col-md-12 d-flex flex-row flex-wrap">
+            <span *ngFor="let user of users">
+                <div class="card p-2 m-2" style="width: 18rem">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="subdued">
+                                Username: 
+                            </h3>
+                            <h2>
+                                {{user.userName}}
+                            </h2>
+                        </div>
+                        <p class="card-text">
+                            {{user.firstName}}
+                            {{user.lastName}}
+                        </p>
+                        <p class="card-text">
+                            <a routerLink='/user/detail/{{user.id}}' class="mr-3">
+                                <img width='20' height='20' src='assets/details.png' title='User Details'>
+                            </a>
+                            <a routerLink='/user/edit/{{user.id}}'>
+                                <img width='20' height='20' src='assets/pencil-icon.png' title='Edit User'>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+</span>
+<!-- <table *ngIf="users" class='table table-sm table-striped'>
     <thead>
         <tr>
             <th>Username</th>
@@ -28,4 +64,4 @@
             </a></td> 
         </tr>
     </tbody>
-</table>
+</table> -->

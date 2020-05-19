@@ -1,11 +1,53 @@
 <app-menu></app-menu>
-<section class="Heading">
-    <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-    <a routerLink='/request/create'>
-            <img width='20' height='20' src='assets/addnewblue.png' title='Add New'>
-        </a>
-</section>
-<table *ngIf="requests" class='table table-sm table-striped'>
+<div class="jumbotron">
+  <h1>Requests</h1>
+    <p class="lead">Description about what requests are</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a routerLink='/request/create' class="btn btn-primary btn-lg" href="#" role="button">Add New</a>
+  </p>
+</div>
+
+<span *ngIf="requests">
+    <div class="container-fluid mt-3">
+        <div class="col-md-12 d-flex flex-row flex-wrap">
+            <span *ngFor="let request of requests">
+                <div class="card p-2 m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="subdued">
+                                User:
+                            </h3>
+                            <h2>
+                                {{request.user.userName}}
+                            </h2>
+                        </div>
+                        <p class="card-text">
+                            {{request.description}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Needed By: {{request.dateNeeded}}</li>
+                        <li class="list-group-item">Status: {{request.status}}</li>
+                        <li class="list-group-item">Submitted: {{request.submittedDate}}</li>
+                    </ul>
+                    <div class="card-text">
+                        <a routerLink='/request/detail/{{request.id}}'class="mr-1">
+                            <img width='20' height='20' src='assets/details.png' title='Request Details'>
+                        </a> |
+                        <a routerLink='/request/edit/{{request.id}}'>
+                            <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
+                        </a> |
+                        <a routerLink='/request/request-lines/{{request.id}}'>
+                            <img width='20' height='20' src='assets/lines.png' title='Edit Request'>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+</span>
+<!-- <table *ngIf="requests" class='table table-sm table-striped'>
     <thead>
         <tr>
             <th>User</th>
@@ -25,15 +67,15 @@
             <td>{{request.submittedDate}}</td>
             <td>
                 <a routerLink='/request/detail/{{request.id}}'>
-                 <img width='20' height='20' src='assets/details.png' title='Request Details'>
-            </a> |
-            <a routerLink='/request/edit/{{request.id}}'>
-                <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
-            </a> |
-            <a routerLink='/request/request-lines/{{request.id}}'>
-                <img width='20' height='20' src='assets/lines.png' title='Edit Request'>
-            </a>
-        </td> 
+                    <img width='20' height='20' src='assets/details.png' title='Request Details'>
+                </a> |
+                <a routerLink='/request/edit/{{request.id}}'>
+                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Request'>
+                </a> |
+                <a routerLink='/request/request-lines/{{request.id}}'>
+                    <img width='20' height='20' src='assets/lines.png' title='Edit Request'>
+                </a>
+            </td>
         </tr>
     </tbody>
-</table>
+</table> -->

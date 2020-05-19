@@ -1,63 +1,69 @@
 <app-menu></app-menu>
-<section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{title}}]</span>
-    <span> | <a routerLink="/request/list">Return to List</a></span>
-</section>
-<table *ngIf="request" class="table table-sm table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ request.id }}</td>
-            <td>{{ request.description }}</td>
-            <td>{{ request.status }}</td>
-            <td>{{ request.total | currency }}</td>
-        </tr>
-    </tbody>
-</table>
-<section class="heading">
-    <span class="page-title font-weight-bold font-italic">[{{titleLineItems}}]</span>
-    <a *ngIf="request.status == 'New'" routerLink='/line-item/create/{{ request.id }}'><img width='20' height='20' src='assets/addnewblue.png'
-            title='Add New'></a>
-</section>
+<div class="jumbotron">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <a routerLink="/request/list" class="breadcrumb-item active" aria-current="page">
+            &#8592; Return to list</a>
+    </nav>
+    <h1>{{title}}</h1>
+    <span *ngIf="request">
+        <span class="lead">
+            <p>
+                <strong>ID </strong>{{ request.id }}
+            </p>
+            <p>
+                <strong>Description </strong>{{ request.description }}
+            </p>
+            <p>
+                <strong>Status </strong>{{ request.status }}
+            </p>
+            <p>
+                <strong>Total </strong>{{ request.total | currency }}
+            </p>
+        </span>
+    </span>
 
-<table class="table table-sm table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Line Total</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="lineItems" class="table table-sm table-striped">
-        <tr *ngFor="let lineItem of lineItems">
-            <td>{{ lineItem.id }}</td>
-            <td>{{ lineItem.product.name }}</td>
-            <td>{{ lineItem.quantity }}</td>
-            <td>{{ lineItem.product.price | currency }}</td>
-            <td>{{ lineItem.product.price * lineItem.quantity | currency }}</td>
-            <td>
-                <a routerLink='/line-item/edit/{{lineItem.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Line Item'>
-                </a>
-                <button *ngIf="request.status == 'New'" (click)="delete(lineItem.id)" style="border:none;">
-                    <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-   
-</table>
-<span *ngIf="!lineItems" class="nolines">No line items yet.  Please create a new one!</span>
-<span *ngIf="lineItems"><button *ngIf="request.status == 'New'" (click)="submitForReview()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span>
-<span *ngIf="request.reasonForRejection">Management notes: {{request.reasonForRejection}} </span>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+                <h2 class="float-left mb-3">{{titleLineItems}}</h2>
+                <a *ngIf="request.status == 'New'" routerLink='/line-item/create/{{ request.id }}' class="btn btn-primary btn-sm float-right mb-3" href="#" role="button">Add New</a>
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Line Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="lineItems" class="table table-sm table-striped">
+                    <tr *ngFor="let lineItem of lineItems">
+                        <td>{{ lineItem.id }}</td>
+                        <td>{{ lineItem.product.name }}</td>
+                        <td>{{ lineItem.quantity }}</td>
+                        <td>{{ lineItem.product.price | currency }}</td>
+                        <td>{{ lineItem.product.price * lineItem.quantity | currency }}</td>
+                        <td>
+                            <a routerLink='/line-item/edit/{{lineItem.id}}'>
+                                <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Line Item'>
+                            </a>
+                            <button *ngIf="request.status == 'New'" (click)="delete(lineItem.id)" style="border:none;">
+                                <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
 
+            </table>
+            <span *ngIf="!lineItems" class="nolines">No line items yet. Please create a new one!</span>
+            <span *ngIf="lineItems"><button *ngIf="request.status == 'New'" (click)="submitForReview()"
+                    class="btn btn-sm btn-primary float-right">{{submitBtnTitle}}</button></span>
+            <span *ngIf="request.reasonForRejection">Management notes: {{request.reasonForRejection}} </span>
+
+        </div>
+    </div>
+
+</div>

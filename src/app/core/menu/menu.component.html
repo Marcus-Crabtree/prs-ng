@@ -1,9 +1,14 @@
-<nav>
-
-    <ul>
-        <li>PRS</li>
-        <li *ngFor="let mi of menuItems" title="{{mi.tooltip}}">
-            <a routerLink="{{mi.href}}">{{mi.display}}</a>
-        </li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">PRS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li *ngFor="let mi of menuItems" [routerLinkActive]="['active']" title="{{mi.tooltip}}" class="nav-item">
+                <a routerLink="{{mi.href}}" class="nav-link" href="#">{{mi.display}}</a>
+            </li>
+        </ul>
+    </div>
 </nav>

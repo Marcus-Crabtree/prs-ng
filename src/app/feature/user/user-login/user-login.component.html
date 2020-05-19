@@ -1,8 +1,8 @@
-<div class='component-content'>
+<!-- <div class='component-content'>
     <form class='text-center'>
       <table *ngIf='user' class='table-sm' style='margin:50px auto;padding: 5px 20px;border:1px solid silver;width:400px;'>
         <tr class='text-center'>
-          <td colspan="2">Login</td>
+          <td colspan="2"><h1>Login</h1></td>
         </tr>
         <tr>
           <td>Username:</td>
@@ -20,5 +20,28 @@
         </tr>
       </table>
     </form>
+  </div> -->
+<div class="login-form">
+  <div class="container d-flex justify-content-center">
+    <div class='component-content'>
+      <div class="col-md-12">
+        <div class="row">
+          <div class='login'>
+            <h1>Login</h1>
+              <form>
+                <div class="input-group">
+                  <div class="input">
+                    <input [(ngModel)]='user.userName' name='UserName' type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input">
+                    <input [(ngModel)]='user.password' name='Password' type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                  </div>
+                  <button type='submit' (click)="login()" class='btn btn-primary'>Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
-
+</div>

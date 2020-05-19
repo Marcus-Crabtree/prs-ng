@@ -6,6 +6,7 @@ import { MenuItem } from 'src/app/model/menu-item.class';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = [];
 
