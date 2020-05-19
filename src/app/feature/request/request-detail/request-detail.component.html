@@ -21,17 +21,13 @@
       <p *ngIf="request.reasonForRejection"><strong>Reason for Rejection </strong>{{ request.reasonForRejection}}</p>
     </span>
     <span>
-      <spannew
-        ><a routerLink="/request/edit/{{ request.id }}" class="btn btn-sm btn-warning"
-          >Edit</a
-        ></span
-      >
       <span>
+        <a routerLink="/request/edit/{{ request.id }}" class="btn btn-sm btn-warning">Edit</a>
+        </span>
+        <span>
         |
-        <button (click)="delete()" class="btn btn-sm btn-danger">
-          Delete
-        </button></span
-      >
+        <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
+      </span>
     </span>
   </span>
 </div>
