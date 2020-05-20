@@ -25,4 +25,8 @@ export class SystemService {
       this.router.navigateByUrl("/user/login");
     }
   }
+  isReviewer(): boolean { 
+    return (this.loggedInUser == null) ? false : this.loggedInUser.reviewer;
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/model/menu-item.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ import { MenuItem } from 'src/app/model/menu-item.class';
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = [];
 
-  constructor() { }
+  constructor(private sysSvc: SystemService) { }
 
   ngOnInit(): void {
     this.menuItems = [
@@ -18,10 +19,14 @@ export class MenuComponent implements OnInit {
       new MenuItem("Users", "/user/list", "List of Users"),
       new MenuItem("Vendors", "/vendor/list","List of Vendors"),
       new MenuItem("Products", "/product/list", "List of Products"),
-      new MenuItem("Purchase Request", "/request/list", "List of Requests"),
-      new MenuItem("Review", "/request/review", "Request Review List"),
-      new MenuItem("Log In", "/user/login", "Log In"),
-    ];
+      new MenuItem("Purchase Request", "/request/list", "List of Requests")];
+      if (this.sysSvc.isAdmin()) {
+        this.menuItems.push(new MenuItem("Review", "/request/review", "Request Review List"));
+        
+
+      }
+      this.menuItems.push( new MenuItem("Log In", "/user/login", "Log In"));
+    
   }
 
 }
