@@ -19,8 +19,8 @@
       <p><strong>Last Name </strong>{{ user.lastName }}</p>
       <p><strong>Phone </strong>{{ user.phoneNumber }}</p>
       <p><strong>Email </strong>{{ user.email }}</p>
-      <p><strong>Reviewer </strong>{{ user.reviewer }}</p>
-      <p><strong>Admin </strong>{{ user.admin }}</p>
+      <p><strong>Reviewer </strong>{{ user.reviewer ? "Yes" : "No"}}</p>
+      <p><strong>Admin </strong>{{ user.admin ? "Yes" : "No"}}</p>
     </span>
     <span>
       <span
