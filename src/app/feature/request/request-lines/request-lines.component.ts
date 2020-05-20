@@ -4,6 +4,7 @@ import { RequestService } from 'src/app/service/request.service';
 import { LineItemService } from 'src/app/service/lineitem.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Request } from 'src/app/model/request.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-lines',
@@ -17,13 +18,17 @@ export class RequestLinesComponent implements OnInit {
   submitBtnTitle: string = "Submit";
   requestId: number = 0;
   lineItems: LineItem[] = [];
-  // lineTotal: number = 0;
-  // isEmpty: boolean = false;
+  
 
-  constructor(private requestSvc: RequestService, private lineItemSvc: LineItemService, 
-    private router: Router, private route: ActivatedRoute) { }
+  constructor(private requestSvc: RequestService,
+    private lineItemSvc: LineItemService, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
     this.route.params.subscribe(parms => this.requestId = parms['id']);
     this.requestSvc.get(this.requestId).subscribe(jr => {
       this.request = jr.data as Request;
@@ -33,13 +38,7 @@ export class RequestLinesComponent implements OnInit {
       this.lineItems = jr.data as LineItem[];
       console.log("List of Line Items", this.lineItems);
     });
-    // if (this.lineItems.length > 0){
-    //   this.lineTotal = this. 
-    // }
-    // else {
-
-    // }
-
+    
   }
 
   delete(lineItemId: number){

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user.class';
 import { UserService } from 'src/app/service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from 'src/app/service/system.service';
+import { Request } from 'src/app/model/request.class';
 
 @Component({
   selector: 'app-user-detail',
@@ -12,13 +14,17 @@ export class UserDetailComponent implements OnInit {
   user: User = new User();
   title: string = "User-Detail";
   userId: number = 0;
+  request: Request = new Request();
 
 
   constructor(private userSvc: UserService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
     this.route.params.subscribe(parms => this.userId = parms["id"]);
     this.userSvc.get(this.userId).subscribe(
       jr => {

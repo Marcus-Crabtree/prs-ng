@@ -4,6 +4,8 @@ import { Vendor } from 'src/app/model/vendor.class';
 import { ProductService } from 'src/app/service/product.service';
 import { VendorService } from 'src/app/service/vendor.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Request } from 'src/app/model/request.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -16,14 +18,19 @@ export class ProductEditComponent implements OnInit {
   product: Product = new Product();
   productId: number = 0;
   submitBtnTitle: string ="Save";
+  request: Request = new Request();
 
 
   constructor(private productSvc: ProductService,
     private vendorSvc: VendorService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    //sec check
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
     //getting id from url
     this.route.params.subscribe(parms => this.productId = parms["id"]);
     //get the credit for the id passed in url

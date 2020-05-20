@@ -4,8 +4,7 @@ import { LineItem } from 'src/app/model/lineItem.class';
 import { RequestService } from 'src/app/service/request.service';
 import { LineItemService } from 'src/app/service/lineitem.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-
+import { SystemService } from 'src/app/service/system.service';
 @Component({
   selector: 'app-request-approve',
   templateUrl: './request-approve.component.html',
@@ -23,9 +22,12 @@ export class RequestApproveComponent implements OnInit {
   constructor(private requestSvc: RequestService,
     private lineitemSvc: LineItemService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
     this.requestSvc.get(this.requestId).subscribe(
       jr => {

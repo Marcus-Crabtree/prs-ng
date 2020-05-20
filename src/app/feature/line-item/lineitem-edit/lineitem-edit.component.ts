@@ -4,6 +4,8 @@ import { Product } from 'src/app/model/product.class';
 import { LineItemService } from 'src/app/service/lineitem.service';
 import { ProductService } from 'src/app/service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from 'src/app/service/system.service';
+import { Request } from 'src/app/model/request.class';
 
 @Component({
   selector: 'app-lineitem-edit',
@@ -16,11 +18,18 @@ export class LineItemEditComponent implements OnInit {
   lineItem: LineItem = new LineItem();
   lineItemId: number = 0;
   products: Product[] = [];
+  request: Request = new Request();
 
-  constructor(private lineItemSvc: LineItemService, private productSvc: ProductService,
-    private router: Router, private route: ActivatedRoute) { }
+  constructor(private lineItemSvc: LineItemService, 
+    private productSvc: ProductService,
+    private router: Router, 
+    private route: ActivatedRoute,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
+    
     this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
     this.lineItemSvc.get(this.lineItemId).subscribe(jr => {
       this.lineItem = jr.data as LineItem;

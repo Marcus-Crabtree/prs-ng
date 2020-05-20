@@ -4,6 +4,8 @@ import { Vendor } from 'src/app/model/vendor.class';
 import { ProductService } from 'src/app/service/product.service';
 import { VendorService } from 'src/app/service/vendor.service';
 import { Router } from '@angular/router';
+import { Request } from 'src/app/model/request.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-create',
@@ -15,13 +17,17 @@ export class ProductCreateComponent implements OnInit {
   vendors: Vendor[] = [];
   product: Product = new Product();
   submitBtnTitle: string = "Create";
+  request: Request = new Request();
 
 
   constructor(private productSvc: ProductService,
     private vendorSvc: VendorService,
-    private router: Router) { }
+    private router: Router,
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.request.user = this.sysSvc.loggedInUser;
     this.vendorSvc.list().subscribe(
       jr => {
         this.vendors = jr.data as Vendor[];
