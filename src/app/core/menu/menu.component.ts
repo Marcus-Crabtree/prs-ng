@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
       if (this.sysSvc.isReviewer()) {
         this.menuItems.push(new MenuItem("Review", "/request/review", "Request Review List")); 
       }
-      this.menuItems.push( new MenuItem("Log In", "/user/login", "Log In"));
+      this.menuItems.push( new MenuItem("Log Out", "/user/login", "Log Out"));
     
   }
 
